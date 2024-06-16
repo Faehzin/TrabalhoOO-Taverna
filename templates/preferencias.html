@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Preferencias do Usuário</title>
+    <style>
+        body{
+            height: 100vh;
+            background: linear-gradient(180deg,#08172e, #000814) repeat;
+            background-size: cover;
+            background-position: center;
+            font-family:'Times New Roman', Times, serif;
+            margin: 0; /* Remover margens padrão do corpo */
+            display: flex;
+            justify-content: center; /* Centralizar na horizontal */
+            align-items: center; /* Centralizar na vertical */
+        }
+        .formulario{
+            margin-top: 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #A98A4A;
+            background: linear-gradient(180deg,#A98A4A, #766033);
+            border-radius: 7%;
+            width: 50%;
+            padding: 20px;
+            gap: 5px; 
+        }
+        .formulario h1, h2, h3, h4, p {
+            margin: 10px 0;
+            color: #08172e;
+        }
+        .formulario p{
+            font-size: 18px;
+        }
+        .formulario input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .formulario label {
+            margin-bottom: 5px;
+            color: #08172e;
+        }
+        .botoes {
+            display: flex;
+            gap: 10px;
+        }
+        .botoes button, .formulario input[type="submit"] {
+            background-color: #08172e;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .botoes button:hover, .formulario input[type="submit"]:hover {
+            background-color: #555;
+        }
+        .formulario .alterar {
+            width: 100%;
+            text-align: left;
+        }
+        .formulario input[type="checkbox"]{
+            cursor: pointer;
+            background-color: 08172e;
+            color: black;
+            border-radius: 30px;
+        }
+
+    </style>
+    <script>
+    </script>
+</head>
+<body>
+    <div class="formulario">
+        
+        <h1>Este é seu perfil, {{prefUser.nome}}</h1>
+        <h2> Suas informações seguem logo abaixo! </h2>
+
+        <p> Rpg Favoritos: <br>
+            {{prefUser.rpg_fav}} </p>
+        <p> Tipo de Jogo: <br> 
+            {{prefUser.tipoJogo}}</p>
+        
+        <br>
+        <div class="botoes">
+            <button onclick=" window.location.href = '{{url_for('index')}}'">Voltar</button>
+            <form action="{{url_for('deletar')}}" method="POST" style="display:inline">
+                <button type="submit">Delete</button>   
+            </form>
+        </div>  
+        <br>
+        <br>
+        <div class="alterar">
+            <h3> Seus gostos mudaram? Relaxe! </h3>
+            <h4> Escolha aqui suas novas preferencias!</h4>
+            <form method="POST" action="{{url_for('atualizar' )}}">
+                <label for="novo_rpg_fav">Novos RPGs Favoritos:</label><br>
+                <input type="checkbox" id="rpg_dnd" name="novo_rpg_fav" value="DnD" {% if 'DnD' in prefUser.rpg_fav %} checked {% endif %}>
+                <label for="rpg_dnd">Dungeons and Dragons</label><br>
+                
+                <input type="checkbox" id="rpg_t20" name="novo_rpg_fav" value="T20" {% if 'T20' in prefUser.rpg_fav %} checked {% endif %}>
+                <label for="rpg_t20">Tormenta20</label><br>
+                
+                <input type="checkbox" id="rpg_coc" name="novo_rpg_fav" value="CoC" {% if 'CoC' in prefUser.rpg_fav %} checked {% endif %}>
+                <label for="rpg_coc">Call of Cthulhu</label><br>
+                <br>
+
+                <label for="novo_tipo_jogo ">Novo(s) estilo(s) de jogo:</label><br>
+                <input type="checkbox" id="rpg_player" name="novo_tipo_jogo" value="Player" {% if 'Player' in prefUser.tipoJogo %} checked {% endif %}>
+                <label for="rpg_dnd">Player</label><br>
+                
+                <input type="checkbox" id="rpg_mestre" name="novo_tipo_jogo" value="Mestre" {% if 'Mestre' in prefUser.tipoJogo %} checked {% endif %}>
+                <label for="rpg_mestre">Mestre</label>
+                <br>
+                <br>
+                <input type="submit" value="salvar">
+            </form>
+            
+        </div>
+    </div>
+</body>
+</html>

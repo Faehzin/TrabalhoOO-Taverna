@@ -1,0 +1,307 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;  
+    /*background: linear-gradient(180deg,#064c77, #29515f);*/
+    background-color: #000814;
+    font-family:'Times New Roman', Times, serif;
+}
+
+header {
+    background-color: #000814;
+    background: linear-gradient(180deg,#001535, #000814);
+    padding: 5px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    font-style: oblique;
+    font-display: flex;
+    color: #A98A4A;
+    text-shadow: 1px 1px 3px #2B2005;
+     /* faz com que tudo seja mostrado em colunas! */
+}
+
+/* centraliza a caneca no header */
+
+.title-container{
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 0px;
+}
+
+/* define que o titulo "taverna do fa" apareça mais a direita, com a imagem bem definida */
+.title-container h1{
+    margin-right: 15px;
+    margin-left: 10px;
+}
+
+.central1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column  ;
+}
+
+header, nav {
+    padding: 3px;
+    font-style: italic;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+    margin-right: 30px;
+}
+
+/* Cursor ao clicar no cabeçalho */
+nav i,a{
+    cursor: crosshair;
+    color:#A98A4A;
+    text-decoration: none;
+    text-shadow: 1px 1px 3px black;
+}
+
+nav i:hover,a:hover{
+    text-decoration: underline;
+    text-shadow: 1px 1px 3px #29515f;
+}
+
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+/* formato do copo até as bolhas quentes*/
+.cup{
+    position: relative;
+    width: 50px;
+    height: 70px;
+    background: linear-gradient(80deg, #967433, #caa141);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    /* clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%); */
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    box-shadow: 0 0 10px black;
+}
+
+.topo {
+    position: absolute;
+    top: -10px;
+    left: 0px;
+    width: 100%;
+    height: 26px;
+    background: linear-gradient(80deg, #967433, #caa141);
+    border-radius: 50%;
+}
+
+.dentro{
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    width: calc(100% - 6px);
+    height: 16px;
+    background: linear-gradient(80deg, #B8923B, #564118);
+    border-radius: 50%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.beer{
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #463308, #1B1403);
+    border-radius: 50%;
+}
+.segurador{
+    position:absolute;
+    right: -18px;
+    top: 3px;
+    width: 50px;
+    height: 60px;
+    border: 8px solid #caa141;
+    border-left: 12px solid transparent;
+    border-bottom: 19px solid transparent;
+    border-radius: 50%;
+    transform: rotate(40deg);
+}
+.bolhas {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    padding: 0px -1px;
+}
+.bolhas span{
+    position: center;
+    display:inline-block;
+    bottom: 58px;
+    margin: -25px 0px 0px 0px;
+    min-width: 10px;
+    height: 80px;
+    background: #fff;
+    border-radius: 100%;
+    animation: animate 6s linear infinite;
+    filter:blur(10px);
+    animation-delay: calc(var(--i) * -1.5s);
+    opacity: 0;
+}
+/* Animação das bolhas quentes*/
+@keyframes animate{
+    0%
+    {
+        transform: translateY(0) scaleX(1);
+        opacity: 0;
+    }
+    15%{
+        opacity: 1;
+    }
+    50%
+    {
+        transform: translateY(-150px) scaleX(5);
+        opacity: 1;
+    }
+    75%
+    {
+        opacity: 0.32;  
+    }
+    100%
+    {
+        transform: translateY(-300px) scaleX(10);
+        opacity: 0;
+    }
+}
+
+/*títulos de entrada na main*/
+.boas-vindas{
+    margin-top:100px;
+    margin-bottom: 0px;
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.boas-vindas h2,h3{
+    color: #A98A4A;
+    text-shadow: 1px 1px 3px #2B2005;
+}
+
+.entradas {
+    margin: 20px 15px;
+    gap: 10px;
+    margin-left: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.entradas h3{
+    color:#1E3545
+}
+
+.entradas a{
+    text-decoration: none;
+    color:#1E3545;
+    margin: 0px 0px 0px 0px;
+    align-items: center;
+
+}
+
+.entradas article{
+    box-shadow: 0 0 10px black;
+    box-sizing: content-box;
+    width: 65%;
+    background-color: #967433;
+    padding: 1em;
+    border-radius: 30px;
+    text-align: center;
+    display: flex;   
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.5s;
+}
+
+.entradas article:hover{
+    background-color: #B8923B;
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+.entradas img{
+    max-width: 70%;
+    border-radius: 100%;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    height: 80px;
+    box-shadow: 0px 0 10px #03071b;
+}
+
+.conteudo{
+    margin-top: 12px;
+    padding: 10px;
+    flex-direction: column;
+    margin: 12px 15px;
+}
+
+footer{
+    background: linear-gradient(180deg, #29515f,#1E3545);
+    text-align: center;
+    padding: 1em 0;
+}
+
+/* */
+main {
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+}
+article{
+    flex:3;
+    margin-right: 20px;
+}
+.conteudo main article h3,p{
+    margin: 5px 0px;
+}
+.conteudo p,a{
+    color:#826736e2;
+    font-style: italic;
+}
+
+.conteudo main article img{
+    height: 0px;
+}
+
+aside{
+    flex: 1;
+    margin-left: 20px;
+}
+
+.Importantes h2{
+    color:#7e6638;
+    font-style: italic;
+}
+
+.Contato h2{
+    color:#7e6638;
+    font-style: italic;
+}

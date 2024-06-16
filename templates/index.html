@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Copo de Cerveja </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='copo.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!--Título de navegação-->
+    <header>
+        <div class="title-container">
+            <h1> Taverna do FA</h1>
+            <div class="cup">
+                <div class="topo">
+                    <div class="bolhas"> 
+                        <span style="--i:1;"></span>
+                        <span style="--i:4;"></span>
+                        <span style="--i:3;"></span>
+                        <span style="--i:2;"></span>
+                    </div>
+                    <div class="dentro">
+                        <div class="beer">
+                        </div>
+                    </div>
+                </div>
+            <div class="segurador">              
+            </div>  
+            </div>
+        </div>
+        <nav>
+            <i class='bx bx-user'><a href='{{url_for('infos')}}'>Perfil</a></i>
+            <i class='bx bx-edit-alt'><a href='{{url_for('cadastro')}}'>Cadastro</a></i>
+            <i class='bx bx-log-out-circle'><a href='{{url_for('logout')}}'>Sair</a></i>
+        </nav>
+    </header>
+    <!--Nomenclatura inicial-->
+    <div class="central1">
+        <div class="boas-vindas">
+            <h2> Seja bem vindo a taverna!</h2>
+            <h3> Aprenda sobre seus sistemas favoritos!</h3>
+        </div>
+        <div class="entradas">
+            <a href="{{url_for('mago')}}">
+                <article>
+                    <h3> Converse com o Mestre Mago</h3>
+                    <img src="mago.png">
+                    <p>Os conhecimentos perdidos estão aqui...</p>
+                </article>
+            </a>
+        </div>
+    </div>
+    <!--Quadrados amarelos que levão ao chatgpt e ao sistema de pjo-->
+    <!--Conteúdos e contato!-->
+    <div class="conteudo">
+        <main>
+            <article>
+                <img src="testeee.jpeg" align="left" alt="testando" >
+                <h3> O quê é um rpg? </h3>
+                <p align="justify"> “RPG” é uma abreviação de “Role-Playing-Game”, ou seja, um jogo de interpretação. No caso, o objetivo deste site é tratar sobre o “Tabletop RPG”, o conhecido rpg de mesa, que haje como um jogo de tabuleiro!
+                    <br>
+                    Dentro de um rpg, você, jogador ou mestre, interpreta outra vida, com outros pensamentos e histórias, que vai além do mundo que você conhece. Podem ser semideuses em um mundo mitológico, aventureiros 
+                    
+                    Aqui, você joga cooperativamente, contra “npcs” <i>(personagens não jogáveis)</i> do seu mestre de campanha! 
+                </p>
+                <img src="./imagens/fundo.png" align="left">
+                <h3> Dados, sistemas e Regras</h3>
+                <p align="justify"> Para jogar um rpg, normalmente se utiliza um SISTEMA. Cada sistema possui suas próprias regras, mas a maioria é baseado em uma única coisa: DADOS! Com 6, 12, 20 ou até 100 lados, alguns sistemas provocam você a jogar vários dados para causar dano, outros utilizam dados apenas para situações extremamente importantes. <br>
+                    Na taverna do Fa, você irá encontrar o <b>Mestre dos Magos</b>. Ele pode te ensinar sobre os três sistemas mais famosos do mundo, e tirar grandes dúvidas sobre eles. Que tal fazer uma pergunta?
+                </p>
+            </article>
+
+        <aside>
+            <section class="Importantes">
+                <h2>Dicas Importantes</h2>
+                <p> Sempre role um 20 antes de agir!</p>
+                <p> Tome bastante água!</p>
+                <p> Entre no personagem: se ele morrer, você morre.</p>
+
+            </section>
+            <section class="Contato">
+                <h2>Contato para dúvidas!</h2>
+            <p> gabrielsampaio.fae@gmail.com <br>
+                (61) 98307-5496 <br>
+                <a href="">Discord</a> <br>
+            </section>
+            </p>
+        </aside>
+
+    </main>
+    </div>
+</body>
+</html>

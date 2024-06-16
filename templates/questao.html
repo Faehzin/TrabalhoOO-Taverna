@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body{
+                height: 100vh;
+                background: url('https://i.imgur.com/jMRmYxV.jpeg') no-repeat;
+                background: linear-gradient(180deg,#08172e, #000814, #08172e);
+                background-blend-mode: lighten;
+                background-size: cover;
+                background-position: center;
+                font-family:'Times New Roman', Times, serif;
+                margin: 0; /* Remover margens padrão do corpo */
+                display: flex;
+                justify-content: center; /* Centralizar na horizontal */
+                align-items: center; /* Centralizar na vertical */
+            }
+            .container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background-color: #A98A4A;
+                background: linear-gradient(180deg,#A98A4A, #766033);
+                border-radius: 5%;
+                width: 50%;
+                gap: 10px;  
+            }
+            .pergunta{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                align-content: center;
+                padding: 3px;
+                margin: 15px 15px;
+            }
+            .startPage {
+                display: flex;
+                flex-direction: column; 
+                align-items: center;
+                justify-content: center;
+                margin: 8px 1px;
+            }
+            .startPage h2,p{
+                color: #0f2d5a;
+                text-decoration: wavy;
+            }
+            .pergunta form input[type="text"]{
+                height:30px;
+                border-radius: 10px;
+                font-size:1.02em;
+                padding: 10px;
+                width: 215px;
+                margin-right: 5px;
+                box-shadow: 0px 0px 5px black;
+            }
+            .pergunta p{
+                color: #0f2d5a;
+                font-size: 1.02em;
+                text-align: center;
+                padding: 3px;
+                margin-bottom: 3px;
+            }
+            input[type="submit"] {
+                padding: 5px 10px;
+                font-size: 1em;
+                border-radius: 7px;
+                border: none;
+                background-color: #08172e;
+                color: #fdf6e3;
+                cursor: pointer;
+            }
+            input[type="submit"]:hover {
+                background-color: #003381;
+            }
+        </style>
+        <script>
+        </script>   
+    </head>
+    <body>
+        <div class="container">
+            <div class="startPage">
+                <h2> O grande mestre mago te espera.</h2>
+                <p> Pense bem em suas perguntas...</p>
+            </div>
+            <div class="pergunta">
+                <form action="{{ url_for('mago') }}" method="post">
+                <p> <b>Qual dúvida paira em sua mente?</b> <br> <p>
+                <input type="text" name="questao"> <input type="submit">
+                </form>
+                <br>
+            <p><b><i>{{ resposta }}</i></b></p>
+            </div>
+        </div>
+    </body>
+</html>
